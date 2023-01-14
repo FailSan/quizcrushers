@@ -1,0 +1,326 @@
+.rankFrame {
+    background-color: var(--backgroundColor);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px var(--shadowColor);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 60%;
+
+    padding: 20px;
+
+    position: relative;
+
+    overflow: visible;
+}
+
+.factionExperience {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: calc(100% + 20px);
+    aspect-ratio: 1 / 1;
+
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: -10px;
+    right: 0px;
+    z-index: -1;
+
+    margin: auto;
+
+    overflow: visible;
+}
+
+.factionExperience svg {
+    filter: drop-shadow(0px 0px 5px var(--shadowColor));
+
+    width: 100%;
+    height: 100%;
+
+    animation-name: rotateCircle;
+    animation-duration: 3s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+.myCircle {
+    fill: none;
+    stroke: var(--color);
+    stroke-width: 6px;
+    stroke-dasharray: var(--percentage) calc((100% - 6px) * 3.14159);
+    stroke-linecap: round;
+
+    r: calc(50% - 3px);
+    cx: 50%;
+    cy: 50%;
+    
+    animation-name: fillingCircle;
+    animation-duration: 3s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+.enemyCircle {
+    fill: none;
+    stroke: var(--color);
+    stroke-width: 6px;
+    stroke-dasharray: calc((100% - 6px) * 3.14159) calc((100% - 6px) * 3.14159);
+    stroke-linecap: round;
+
+    r: calc(50% - 3px);
+    cx: 50%;
+    cy: 50%;
+}
+
+.userRank {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 100%;
+    height: 60%;
+
+    padding: 10px;
+
+    overflow-x: visible;
+    overflow-y: auto;
+
+    scrollbar-width: auto;
+    scrollbar-color: transparent transparent;
+}
+
+.userRank::-webkit-scrollbar {
+    width: 10px;
+}
+
+.userRank::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.userRank::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 5px;
+    border: 0px solid #ffffff;
+}
+
+.userRankContainer {
+    background-color: var(--mainColor);
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px var(--shadowColor);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 80%;
+
+    position: relative;
+
+    overflow: visible;
+}
+
+[data-user-sel="0"] {
+    transform: scale(0.9);
+
+    transition: 0.5s;
+}
+
+[data-user-sel="1"], .userRankContainer:hover {
+    transform: scale(1);
+
+    transition: 0.5s;
+}
+
+.userRankContainer img {
+    background-color: var(--mainColor);
+    border: 2px Solid var(--mainColor);
+
+    box-shadow: 0px 0px 5px var(--shadowColor);
+}
+
+.userRankNumber {
+    box-shadow: 0px 0px 5px var(--shadowColor);
+}
+
+
+[data-faction-id="1"] {
+    --mainColor: rgba(255, 255, 255, 1);
+    --shadowColor: rgba(0, 0, 0, 1);
+}
+
+[data-faction-id="2"] {
+    --mainColor: rgba(0, 0, 0, 1);
+    --shadowColor: rgba(255, 255, 255, 1);
+}
+
+[data-faction-id="1"] * {
+    color: rgba(0, 0, 0, 1);
+}
+
+[data-faction-id="2"] * {
+    color: rgba(255, 255, 255, 1);
+}
+
+.userRankAvatar {
+    border: 1px Solid Black;
+    border-radius: 50%;
+
+    width: 50px;
+    height: 50px;
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    transform: translateX(-50%);
+}
+
+.userRankInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: calc(100% - 60px);
+    height: 50px;
+
+    padding: 10px;
+}
+
+.userRankNumber {
+    background-color: grey;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50px;
+    height: 50px;
+
+    position: absolute;
+    top: 0px;
+    right: 0px;
+
+    transform: translateX(50%);
+}
+
+.userRankContainer:nth-child(1) .userRankNumber {
+    border: 10px Solid gold;
+}
+.userRankContainer:nth-child(2) .userRankNumber {
+    border: 10px Solid silver;
+}
+.userRankContainer:nth-child(3) .userRankNumber {
+    border: 10px Solid brown;
+}
+
+.userRankActions {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+
+    max-height: 0px;
+    width: 100%;
+
+    transition: 0.5s;
+}
+
+[data-user-sel="1"] .userRankActions {
+    max-height: 100px;
+
+    padding: 10px;
+
+    transition: 0.5s;
+}
+
+.userRankActions p {
+    display: flex;
+    justify-content: space-around;
+
+    width: 100%;
+}
+
+.userRankSearch {
+    background-color: var(--backFullColor);
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px var(--shadowColor);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 80%;
+    height: 40%;
+
+    padding: 20px;
+
+    animation-name: backgroundFollow;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+.userRankSearch fieldset {
+    border: 0px Solid Black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+}
+
+.userRankSearch fieldset legend {
+    text-align: left;
+}
+
+.userRankSearch fieldset input{
+    opacity: 0;
+    appearance: none;
+
+    width: 0px;
+    height: 0px;
+}
+
+.userRankSearch fieldset label {
+    border: 1px Solid Black;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.showRadio label {
+    width: calc(100% / 3);
+}
+
+.sortRadio label {
+    width: 50%;
+}
+
+label:has(input:checked) {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.userRankSearch input[type="text"] {
+    border: 1px Solid Black;
+    border-radius: 5px;
+
+    outline: 0px;
+
+    width: 80%;
+    height: 30px;
+
+    padding: 5px;
+}

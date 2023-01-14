@@ -1,0 +1,228 @@
+.testTitle {
+    filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 1));
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    font-size: 5em;
+
+    width: 100%;
+    height: 20%;
+}
+
+.testDescription {
+    background-color: rgba(48, 110, 137, 0.9);
+    border: 1px Solid rgba(0, 0, 0, 1);
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    font-size: 2em;
+
+    width: 100%;
+    height: 40%;
+
+    padding: 20px;
+}
+
+.testForm {
+    background-color: rgba(48, 110, 137, 0.9);
+    border: 1px Solid rgba(0, 0, 0, 1);
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+
+    font-size: 1.4em;
+
+    width: 100%;
+    height: 40%;
+
+    padding: 20px;
+}
+
+.optionLabel {
+    border: 1px Solid rgba(0, 0, 0, 1);
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: calc(50% - 20px);
+    height: calc(40% - 20px);
+
+    padding: 10px;
+    margin: 10px;
+
+    cursor: pointer;
+
+    transition: 1s;
+}
+
+.optionLabel.hidden {
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: 1s;
+}
+
+.optionButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+
+    width: 100%;
+    height: calc(100% - 20px);
+}
+
+.optionDesc {
+    word-break: break-all;
+}
+
+.optionButton input {
+    opacity: 0;
+    appearance: none;
+
+    width: 0px;
+    height: 0px;
+}
+
+.optionRadio {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 4px Solid rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+
+    flex-shrink: 0;
+
+    width: 20px;
+    height: 20px;
+
+    margin: 10px;
+    
+    cursor: pointer;
+
+    transition: 1s;
+}
+
+.optionPercentage {
+    background-image: linear-gradient(to right, green, transparent var(--percentage));
+
+    font-size: 12px;
+    text-align: center;
+
+    width: 100%;
+    height: 20px;
+}
+
+.optionPercentage.hidden {
+    width: 100%;
+    height: 0px;
+}
+
+.optionLabel:hover {
+    background-color: rgba(1, 73, 104, 0.5);
+
+    transition: 1s;
+}
+
+.optionLabel:hover .optionRadio {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 4px Solid rgba(48, 110, 137, 0.5);
+
+    transition: 1s;
+}
+
+.optionLabel:has(input:checked) {
+    background-color: rgba(1, 73, 104, 1);
+}
+
+.optionLabel input:checked + .optionRadio {
+    background-color: rgba(0, 0, 0, 1);
+    border: 4px Solid rgba(48, 110, 137, 1);
+
+    transition: 1s;
+}
+
+input[type="submit"] {
+    background-color: rgba(1, 73, 104, 1);
+    border: 1px Solid rgba(0, 0, 0, 1);
+    border-radius: 10px;
+
+    font-size: 1em;
+
+    padding: 10px;
+
+    cursor: pointer;
+
+    transition: 1s, transform 0s;
+}
+
+input[type="submit"]:hover {
+    background-color:rgb(1, 46, 65)
+}
+
+input[type="submit"]:active {
+    transform: scale(0.9);
+}
+
+input[type="submit"]:disabled, input[type="submit"]:disabled:hover, input[type="submit"]:disabled:active {
+    filter: grayscale(100%) brightness(100%);
+    background-color: rgba(1, 73, 104, 1);
+    transform: none;
+
+    cursor: not-allowed;
+}
+
+.optionCorrect, .optionCorrect:hover, .optionCorrect:has(input:checked) {
+    background-color: rgba(0, 122, 6, 1);
+
+    cursor: default;
+
+    transition: 1s;
+}
+
+.optionNotCorrect, .optionNotCorrect:hover, .optionNotCorrect:has(input:checked) {
+    background-color: rgba(78, 6, 6, 0.5);
+
+    cursor: default;
+
+    transition: 1s;
+}
+
+.optionCorrect:hover .optionRadio, .optionNotCorrect:hover .optionRadio {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 4px Solid rgba(0, 0, 0, 0.7);
+}
+
+.backButton {
+    background-color: rgba(1, 73, 104, 1);
+    border: 1px Solid rgba(0, 0, 0, 1);
+    border-radius: 10px;
+
+    font-size: 1em;
+
+    padding: 10px;
+
+    cursor: pointer;
+
+    transition: 1s, transform 0s;
+}
+
+.backButton:hover {
+    background-color:rgb(1, 46, 65)
+}
+
+.backButton:active {
+    transform: scale(0.9);
+}
